@@ -38,39 +38,3 @@ class Item
     Time.now.year - @publish_date.year
   end
 end
-
-class Genre
-  attr_reader :items
-
-  def initialize
-    @items = []
-  end
-
-  def add_item(item)
-    @items << item unless @items.include?(item)
-  end
-end
-
-class Author
-  attr_reader :items
-
-  def initialize
-    @items = []
-  end
-
-  def add_item(item)
-    @items << item unless @items.include?(item)
-  end
-end
-
-class Label
-  attr_reader :items
-
-  def initialize
-    @items = []
-  end
-
-  def add_item(item)
-    @items << item unless @items.include?(item)
-  end
-end
