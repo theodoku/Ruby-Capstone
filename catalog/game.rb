@@ -13,8 +13,7 @@ class Game < Item
     super && age_in_years > 2
   end
 
-  
- private
+  private
 
   def age_in_years
     Time.now.year - @last_played_at.year
