@@ -14,7 +14,6 @@ class Label
   end
 
   def already_added(item)
-   @items.include?(item)
+    @items.include?(item)
   end
 end
-
