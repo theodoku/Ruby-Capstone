@@ -6,6 +6,8 @@ class Label
   end
 
   def add_item(item)
-    @items << item unless @items.include?(item)
+    if !@items.include?(item)
+      @items.push(item)
+    end
   end
 end
