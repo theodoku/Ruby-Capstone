@@ -1,5 +1,6 @@
 class Item
-  attr_reader :id, :genre, :author, :label, :publish_date
+  attr_reader :id
+  attr_accessor :genre, :author, :label, :publish_date
 
   def initialize(genre, author, label, publish_date)
     @id = Random.rand(1..1000)
