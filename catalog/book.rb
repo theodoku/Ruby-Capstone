@@ -24,7 +24,7 @@ class Book
     File.write(file_path, json_data)
   end
 
-  def to_json
+  def to_json(*_args)
     {
       title: @title,
       author: @author,
