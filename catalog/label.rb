@@ -1,11 +1,20 @@
 class Label
-  attr_reader :items
+  attr_accessor :text, :color
+  attr_reader :item
 
-  def initialize
-    @items = []
+  def initialize(text, color, item)
+    @text = text
+    @color = color
+    @item = item
   end
 
   def add_item(item)
-    @items.push(item) unless @items.include?(item)
+    @item = item
+    item.label = self
+  end
+
+  def already_added(item)
+   @items.include?(item)
   end
 end
+
