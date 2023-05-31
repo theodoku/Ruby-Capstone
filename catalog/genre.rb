@@ -8,10 +8,15 @@ class Genre
     @id = Random.rand(1..1000)
     @name = name
     @items = []
+  attr_reader :items
+  
+  def initialize
+  @items = []
   end
-
+  
   def add_item(item)
-    @items << item unless @items.include?(item)
+  unless item_already_added?(item)
+  @items << item
   end
 
   def self.file_path

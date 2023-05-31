@@ -1,11 +1,18 @@
 class Author
   attr_reader :items
-
+  
   def initialize
-    @items = []
+  @items = []
   end
-
+  
   def add_item(item)
-    @items << item unless @items.include?(item)
+  @items << item unless item_already_added?(item)
   end
-end
+  
+  private
+  
+  def item_already_added?(item)
+  @items.include?(item)
+  end
+  end
+  
