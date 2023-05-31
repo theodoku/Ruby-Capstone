@@ -1,4 +1,4 @@
-require_relative '../library/genre'
+require_relative '../catalog/genre'
 
 RSpec.describe Genre do
   let(:name) { 'Rock' }
