@@ -10,6 +10,13 @@ class Game < Item
   end
 
   def can_be_archived?
-    super && last_played_at > 2
+    super && age_in_years > 2
+  end
+
+  
+ private
+
+  def age_in_years
+    Time.now.year - @last_played_at.year
   end
 end
