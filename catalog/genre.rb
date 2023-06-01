@@ -8,15 +8,8 @@ class Genre
     @id = Random.rand(1..1000)
     @name = name
     @items = []
-=========
-class Genre
-  attr_reader :items
-  
-  def initialize
-  @items = []
->>>>>>>>> Temporary merge branch 2
   end
-  
+
   def add_item(item)
     return if item_already_added?(item)
 
