@@ -6,6 +6,12 @@ class Author
   end
 
   def add_item(item)
-    @items << item unless @items.include?(item)
+    @items << item unless item_already_added?(item)
+  end
+
+  private
+
+  def item_already_added?(item)
+    @items.include?(item)
   end
 end
