@@ -21,13 +21,19 @@ class Label
     @items.include?(item)
   end
 
-  def self.load_collection(file_path)
+  def self.file_path
+    './data/labels.json'
+  end
+
+  def self.load_collection
+    return [] unless File.exist?(file_path)
+    
     json_data = File.read(file_path)
     labels_data = JSON.parse(json_data, symbolize_names: true)
     labels_data.map { |label_data| from_json(label_data) }
   end
-
-  def self.save_collection(labels, file_path)
+  
+  def self.save_collection(labels)
     labels_data = labels.map(&:to_json)
     json_data = JSON.generate(labels_data)
     File.write(file_path, json_data)
