@@ -14,6 +14,7 @@ class Genre
     return if item_already_added?(item)
 
     @items << item
+    item.genre = self
   end
 
   def self.file_path
