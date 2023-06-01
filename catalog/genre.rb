@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'item'
 
 class Genre
@@ -15,9 +16,22 @@ class Genre
     @items << item
   end
 
-  private
+  def self.file_path
+    './data/genres.json'
+  end
 
-  def item_already_added?(item)
-    @items.include?(item)
+  def self.load_all
+    return [] unless File.exist?(file_path)
+
+    file_content = File.read(file_path)
+    genre_data = JSON.parse(file_content)
+    genre_data.map { |data| Genre.new(data['name']) }
+  end
+
+  def self.save_all(genres)
+    return unless genres.any?
+
+    genre_data = genres.map { |genre| { name: genre.name } }
+    File.write(file_path, JSON.pretty_generate(genre_data))
   end
 end
