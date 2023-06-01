@@ -1,9 +1,12 @@
 require 'json'
+require_relative 'item'
 
-class Book
+class Book < Item
   attr_accessor :title, :author, :publisher
 
-  def initialize(cover_state, publisher)
+  def initialize(title, publisher, cover_state, publisher_date)
+    super(genre, author, label, publish_date)
+    @title = title
     @cover_state = cover_state
     @publisher = publisher
   end
@@ -12,13 +15,19 @@ class Book
     @cover_state == 'bad'
   end
 
-  def self.load_collection(file_path)
+  def self.file_path
+    './data/books.json'
+  end
+
+  def self.load_collection
+    return [] unless File.exist?(file_path)
+
     json_data = File.read(file_path)
     books_data = JSON.parse(json_data, symbolize_names: true)
     books_data.map { |book_data| from_json(book_data) }
   end
 
-  def self.save_collection(books, file_path)
+  def self.save_collection(books)
     books_data = books.map(&:to_json)
     json_data = JSON.generate(books_data)
     File.write(file_path, json_data)
