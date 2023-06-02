@@ -57,6 +57,34 @@
   </ul>
 </details>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+-[x] Create a main.rb file that will serve as your console app entry-point.
+-[x]  Our console app, at the start, should:
+  - Present the user with a list of options to perform.
+  - Let users choose an option.
+  - If needed, ask for parameters for the option.
+  - Have a way to quit the app.
+-[x] The following options should be available:
+  - List all books
+  - List all music albums
+  - List all movies
+  - List of games
+  - List all genres (e.g 'Comedy', 'Thriller')
+  - List all labels (e.g. 'Gift', 'New')
+  - List all authors (e.g. 'Stephen King')
+  - List all sources (e.g. 'From a friend', 'Online shop')
+  - Add a book
+  - Add a music album
+  - Add a movie
+  - Add a game
+-[x] All data should be preserved by saving collections in .json files.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
@@ -140,7 +168,8 @@ You can deploy this project using:
 
 👤 **BB Simon**
 
-
+- GitHub: [@githubhandle](https://github.com/BB-Simon) 
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bb-simon/) 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
