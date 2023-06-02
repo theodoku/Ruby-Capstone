@@ -1,45 +1,24 @@
-require_relative '../catalog/genre'
-
-RSpec.describe Genre do
-  let(:name) { 'Rock' }
-  subject { Genre.new(name) }
-
-  describe '#new' do
-    it 'takes one parameter and returns a Genre object' do
-      expect(subject).to be_an_instance_of Genre
-    end
+require_relative '../catalog/game'
+require_relative '../catalog/label'
+describe Game do
+  before :each do
+    @label = Label.new('New', 'blue')
+    @game = Game.new(true, '2018-01-23', @label, '1991-02-12')
   end
-
-  describe '#name' do
-    it 'returns the correct name' do
-      expect(subject.name).to eql name
-    end
+  it 'Checking Game instance' do
+    expect(@game).to be_instance_of Game
   end
-
-  describe '#id' do
-    it 'returns a random ID between 1 and 1000' do
-      expect(subject.id).to be >= 1
-      expect(subject.id).to be <= 1000
-    end
+  it 'Returns the true for multiplayer' do
+    expect(@game.multiplayer).to eql true
   end
-
-  describe '#items' do
-    it 'returns an empty array by default' do
-      expect(subject.items).to be_an_instance_of Array
-      expect(subject.items).to be_empty
-    end
+  it 'Returns the correct last_played_at' do
+    expect(@game.last_played_at).to eql '2018-01-23'
   end
-
-  describe '#add_item' do
-    let(:item) { double('Item') }
-
-    it 'adds the item to the genre items' do
-      expect { subject.add_item(item) }.to change { subject.items.length }.by(1)
-    end
-
-    it 'does not add the item if it is already added' do
-      subject.add_item(item)
-      expect { subject.add_item(item) }.not_to(change { subject.items.length })
+  describe '#can_be_archived?' do
+    context 'when super is true and last_played_at > 2' do
+      it 'returns true' do
+        expect(@game.can_be_archived?).to be(false)
+      end
     end
   end
 end
