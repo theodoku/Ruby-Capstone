@@ -7,5 +7,14 @@
       "color": "blue"
     },
     "publish_date": "1991-02-12"
+  },
+  {
+    "multiplayer": true,
+    "last_played_at": "2023-06-02",
+    "label": {
+      "title": "new",
+      "color": "pink"
+    },
+    "publish_date": "2023-05-28"
   }
 ]
