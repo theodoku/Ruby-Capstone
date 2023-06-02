@@ -32,7 +32,9 @@ class Game < Item
 
     file_content = File.read(file_path)
     games_data = JSON.parse(file_content)
-    games_data.map { |data| Game.new(data['multiplayer'], data['last_played_at'], Game.get_label(data), data['publish_date']) }
+    games_data.map do |data|
+      Game.new(data['multiplayer'], data['last_played_at'], Game.get_label(data), data['publish_date'])
+    end
   end
 
   def self.save_all(games)
@@ -42,7 +44,7 @@ class Game < Item
       {
         multiplayer: game.multiplayer,
         last_played_at: game.last_played_at,
-        label: {title: game.label.title, color: game.label.color},
+        label: { title: game.label.title, color: game.label.color },
         publish_date: game.publish_date
       }
     end

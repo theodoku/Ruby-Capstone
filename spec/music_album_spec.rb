@@ -1,7 +1,7 @@
 require_relative '../catalog/music_album'
 require_relative '../catalog/genre'
 RSpec.describe MusicAlbum do
-  let(:genre) { Genre.new('Comedy')}
+  let(:genre) { Genre.new('Comedy') }
   let(:title) { 'title' }
   let(:on_spotify) { true }
   let(:publish_date) { '2010-01-01' }

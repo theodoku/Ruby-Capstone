@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/ClassLength
+
 require_relative './catalog/label'
 require_relative './catalog/book'
 require_relative './catalog/game'
@@ -37,10 +39,10 @@ class App
       puts '📖: Books list:'
       @books.each_with_index do |book, index|
         puts "[#{index + 1}] Title: #{book.title}, " \
-            "Publisher: #{book.publisher}, " \
-            "Author: #{book.author.first_name} #{book.author.last_name}, " \
-            "Cover_State: #{book.cover_state}, " \
-            "Archived: #{book.archived || (book.cover_state == 'bad')}"
+             "Publisher: #{book.publisher}, " \
+             "Author: #{book.author.first_name} #{book.author.last_name}, " \
+             "Cover_State: #{book.cover_state}, " \
+             "Archived: #{book.archived || (book.cover_state == 'bad')}"
       end
     end
   end
@@ -53,10 +55,10 @@ class App
       puts '📝: Music albums list:'
       @music_albums.each_with_index do |music_album, index|
         puts "[#{index + 1}] Title: #{music_album.title}, " \
-            "Spotify: #{music_album.on_spotify}, " \
-            "Genre: #{music_album.genre.name}, " \
-            "Published: #{music_album.publish_date}, " \
-            "Archived: #{music_album.archived}"
+             "Spotify: #{music_album.on_spotify}, " \
+             "Genre: #{music_album.genre.name}, " \
+             "Published: #{music_album.publish_date}, " \
+             "Archived: #{music_album.archived}"
       end
     end
   end
@@ -80,7 +82,10 @@ class App
     else
       puts '🏏: Games list:'
       @games.each_with_index do |game, index|
-        puts "[#{index + 1}] Label: #{game.label.title}, Last played at: #{game.last_played_at}, Multiplayer: #{game.multiplayer}, Publish date: #{game.publish_date}"
+        puts "[#{index + 1}] Label: #{game.label.title}, " \
+             "Last played at: #{game.last_played_at}, " \
+             "Multiplayer: #{game.multiplayer}, " \
+             "Publish date: #{game.publish_date}"
       end
     end
   end
@@ -109,7 +114,7 @@ class App
     author = select_author
     @books = Book.load_collection
     book = Book.new(title, publisher, cover_state, author, publish_date)
-    book.add_author=(author)
+    book.add_author = (author)
     @books << book
     puts 'Book has been created successfully! :white_check_mark:'
     Book.save_collection(@books)
@@ -123,7 +128,6 @@ class App
     @labels = Label.load_collection
     label = Label.new(title, color)
     @labels << label
-    # puts 'Label has been created successfully! :white_check_mark:'
     Label.save_collection(@labels)
     label
   end
@@ -153,7 +157,7 @@ class App
       puts "Invalid value detected: #{multiplayer}"
     end
   end
-  
+
   def add_game
     puts 'Publish Date: '
     publish_date = gets.chomp
@@ -163,7 +167,7 @@ class App
     last_played = gets.chomp
     is_multiplayer = multiplayer_status
     new_game = Game.new(is_multiplayer, last_played, label, publish_date)
-    new_game.add_label=(label)
+    new_game.add_label = (label)
     @games = Game.load_all
     @games << new_game
     Game.save_all(@games)
@@ -187,14 +191,9 @@ class App
     publish_date = gets.chomp
     puts 'Enter music album genre name:'
     genre_name = gets.chomp
-    # genre = @genres.find { |g| g.name == genre_name }
-    # if genre.nil?
-    #   genre = Genre.new(genre_name)
-    #   @genres << genre
-    # end
     genre = add_genre(genre_name)
     music_album = MusicAlbum.new(title, on_spotify, genre, publish_date)
-    music_album.add_genre=(genre)
+    music_album.add_genre = (genre)
     @music_albums = MusicAlbum.load_all
     @music_albums << music_album
     MusicAlbum.save_all(@music_albums)
@@ -202,12 +201,7 @@ class App
   end
 
   def close_app
-    # Label.save_collection(@labels)
-    # Book.save_collection(@books)
-    # Game.save_all(@games)
-    # Author.save_all(@authors)
-    # MusicAlbum.save_all(@music_albums)
-    # Genre.save_all(@genres)
     puts 'Thanks for using the app!'
   end
 end
+# rubocop:enable Metrics/ClassLength
