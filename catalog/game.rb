@@ -12,11 +12,10 @@ class Game < Item
     @multiplayer = multiplayer
     @last_played_at = last_played_at
     @label = label
-    # @publish_date = publish_date
   end
 
   def can_be_archived?
-    super && age_in_years > 2
+    super && (Date.today.year - Date.parse(@last_played_at).year) > 2
   end
 
   def self.file_path
@@ -52,9 +51,10 @@ class Game < Item
     File.write(file_path, JSON.pretty_generate(data))
   end
 
-  private
+  # private
 
-  def age_in_years
-    Date.today.year - Date.parse(@last_played_at).year
-  end
+  # def age_in_years
+  #   today = Date.today
+  #   Date.new(today.year - 2, today.month, today.day)
+  # end
 end

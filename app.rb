@@ -1,11 +1,10 @@
-# rubocop:disable Metrics/ClassLength
-
 require_relative './catalog/label'
 require_relative './catalog/book'
 require_relative './catalog/game'
 require_relative './catalog/author'
 require_relative './catalog/music_album'
 require_relative './catalog/genre'
+require_relative './catalog/list'
 
 class App
   attr_reader :labels, :books, :genres, :music_albums, :games, :authors
@@ -17,89 +16,37 @@ class App
     @music_albums = MusicAlbum.load_all
     @games = Game.load_all
     @authors = Author.load_all
+    @list = List.new
   end
 
   def list_labels
     @labels = Label.load_collection
-    if @labels.empty?
-      puts 'There are no labels available yet ❌!'
-    else
-      puts '🔖: Labels list:'
-      @labels.each_with_index do |label, index|
-        puts "[#{index + 1}] Title: #{label.title}, Color: #{label.color}"
-      end
-    end
+    @list.label_list(@labels)
   end
 
   def list_books
     @books = Book.load_collection
-    if @books.empty?
-      puts 'There are no books available yet :x:!'
-    else
-      puts '📖: Books list:'
-      @books.each_with_index do |book, index|
-        puts "[#{index + 1}] Title: #{book.title}, " \
-             "Publisher: #{book.publisher}, " \
-             "Author: #{book.author.first_name} #{book.author.last_name}, " \
-             "Cover_State: #{book.cover_state}, " \
-             "Archived: #{book.archived || (book.cover_state == 'bad')}"
-      end
-    end
+    @list.book_list(@books)
   end
 
   def list_all_music_albums
     @music_albums = MusicAlbum.load_all
-    if @music_albums.empty?
-      puts 'There are no music albums available yet :x:!'
-    else
-      puts '📝: Music albums list:'
-      @music_albums.each_with_index do |music_album, index|
-        puts "[#{index + 1}] Title: #{music_album.title}, " \
-             "Spotify: #{music_album.on_spotify}, " \
-             "Genre: #{music_album.genre.name}, " \
-             "Published: #{music_album.publish_date}, " \
-             "Archived: #{music_album.archived}"
-      end
-    end
+    @list.music_album_list(@music_albums)
   end
 
   def list_all_genres
     @genres = Genre.load_all
-    if @genres.empty?
-      puts 'There are no genres available yet :x:!'
-    else
-      puts '📑: Genres list:'
-      @genres.each_with_index do |genre, index|
-        puts "[#{index + 1}] Name: #{genre.name}"
-      end
-    end
+    @list.genre_list(@genres)
   end
 
   def list_games
     @games = Game.load_all
-    if @games.empty?
-      puts 'There are no games available yet :x:!'
-    else
-      puts '🏏: Games list:'
-      @games.each_with_index do |game, index|
-        puts "[#{index + 1}] Label: #{game.label.title}, " \
-             "Last played at: #{game.last_played_at}, " \
-             "Multiplayer: #{game.multiplayer}, " \
-             "Publish date: #{game.publish_date}"
-      end
-    end
+    @list.game_list(@games)
   end
 
   def list_authors
     @authors = Author.load_all
-    if @authors.empty?
-      puts 'There is no author available yet :x:!'
-    else
-      puts '👨‍🏫: Authors list:'
-      @authors.each_with_index do |author, index|
-        puts "[#{index + 1}] First name: #{author.first_name}, Last name: #{author.last_name}"
-      end
-    end
+    @list.author_list(@authors)
   end
 
   def add_book
@@ -204,4 +151,3 @@ class App
     puts 'Thanks for using the app!'
   end
 end
-# rubocop:enable Metrics/ClassLength

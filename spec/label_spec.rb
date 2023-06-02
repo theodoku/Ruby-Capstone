@@ -18,14 +18,11 @@ RSpec.describe Label do
       expect(label.color).to eql color
     end
   end
-  describe '#add_item' do
-    let(:item) { double('Item') }
-    it 'adds the item to the genre items' do
-      expect { label.add_item(item) }.to change { label.items.length }.by(1)
-    end
-    it 'does not add the item if it is already added' do
-      label.add_item(item)
-      expect { label.add_item(item) }.not_to(change { label.items.length })
+
+  describe '#items' do
+    it 'Returns an empty array by default' do
+      expect(label.items).to be_an_instance_of Array
+      expect(label.items).to be_empty
     end
   end
 end

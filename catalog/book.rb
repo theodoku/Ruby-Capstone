@@ -14,7 +14,7 @@ class Book < Item
   end
 
   def can_be_archived?
-    @cover_state == 'bad'
+    super || @cover_state == 'bad'
   end
 
   def self.file_path

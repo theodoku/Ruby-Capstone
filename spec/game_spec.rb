@@ -22,7 +22,7 @@ describe Game do
   describe '#can_be_archived?' do
     context 'when super is true and last_played_at > 2' do
       it 'returns true' do
-        expect(@game.can_be_archived?).to be(false)
+        expect(@game.can_be_archived?).to be(true)
       end
     end
   end

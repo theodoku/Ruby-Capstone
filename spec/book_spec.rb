@@ -3,7 +3,7 @@ require_relative '../catalog/book'
 require_relative '../catalog/author'
 describe Book do
   let(:author) { Author.new('Simon', 'Chowdery') }
-  let(:book) { Book.new('New book', 'SK', 'good', author, 'Publisher') }
+  let(:book) { Book.new('New book', 'SK', 'good', author, '20218-02-12') }
   it 'Checking Book instance' do
     expect(book).to be_instance_of Book
   end

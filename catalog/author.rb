@@ -11,6 +11,7 @@ class Author
 
   def add_item(item)
     @items << item unless item_already_added?(item)
+    item.author = self
   end
 
   def self.file_path

@@ -11,6 +11,7 @@ class Genre
 
   def add_item(item)
     @items << item unless @items.include?(item)
+    item.genre = self
   end
 
   def self.file_path

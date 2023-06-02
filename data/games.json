@@ -1,20 +1,11 @@
 [
   {
-    "multiplayer": false,
-    "last_played_at": "2023-01-12",
+    "multiplayer": true,
+    "last_played_at": "2023-01-23",
     "label": {
-      "title": "New",
+      "title": "New label",
       "color": "blue"
     },
-    "publish_date": "1991-02-12"
-  },
-  {
-    "multiplayer": true,
-    "last_played_at": "2023-06-02",
-    "label": {
-      "title": "new",
-      "color": "pink"
-    },
-    "publish_date": "2023-05-28"
+    "publish_date": "2020-01-23"
   }
 ]

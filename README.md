@@ -129,6 +129,11 @@ Install this project with:
  -[ ] bundle install
  -[ ] gem install
 
+### Run the project
+
+To run the project, run the following command:
+
+-[] ruby main.rb
 
 
 ### Run tests
@@ -136,16 +141,6 @@ Install this project with:
 To run tests, run the following command:
 
 -[] rspec spec
-
-
-### Deployment
-
-You can deploy this project using:
-
- -[] COMING SOON
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 

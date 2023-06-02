@@ -1,1 +1,1 @@
-[{"title":"New Book","publisher":"SK","cover_state":"good","author":{"first_name":"Simon","last_name":"Kabir"},"publish_date":"2020-01-23"},{"title":"Proton","publisher":"Dag","cover_state":"good","author":{"first_name":"Theo","last_name":"Doku"},"publish_date":"2023-06-02"}]
+[{"title":"New book","publisher":"sk","cover_state":"good","author":{"first_name":"Simon","last_name":"Chowdery"},"publish_date":"2020-01-23"},{"title":"Test Book","publisher":"sk","cover_state":"bad","author":{"first_name":"Siko","last_name":"nimo"},"publish_date":"2020-03-12"}]
