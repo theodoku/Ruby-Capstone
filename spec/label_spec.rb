@@ -1,34 +1,31 @@
 require_relative '../catalog/label'
-require_relative '../catalog/item'
-
 RSpec.describe Label do
-  describe '#add_item' do
-    let(:label) { Label.new('Label 1', 'Red', nil) }
-    let(:item) { Item.new(1, nil, nil, '2023-01-01') }
-
-    it 'adds the item to the collection of items' do
-      label.add_item(item)
-      expect(label.already_added?(item)).to be true
-    end
-
-    it 'sets self as the label property of the item' do
-      label.add_item(item)
-      expect(item.label).to eq(label)
+  let(:title) { 'Label 1' }
+  let(:color) { 'Red' }
+  let(:label) { Label.new(title, color) }
+  describe '#new' do
+    it 'takes two parameter and returns a Label object' do
+      expect(label).to be_an_instance_of Label
     end
   end
-
-  describe '#already_added?' do
-    let(:label) { Label.new('Label 1', 'Red', nil) }
-    let(:item1) { Item.new(1, nil, nil, '2023-01-01') }
-    let(:item2) { Item.new(2, nil, nil, '2023-01-01') }
-
-    it 'returns true when the item is already added' do
-      label.add_item(item1)
-      expect(label.already_added?(item1)).to be true
+  describe '#title' do
+    it 'Should be return correct title' do
+      expect(label.title).to eql title
     end
-
-    it 'returns false when the item is not added' do
-      expect(label.already_added?(item2)).to be false
+  end
+  describe '#color' do
+    it 'Should be return correct color' do
+      expect(label.color).to eql color
+    end
+  end
+  describe '#add_item' do
+    let(:item) { double('Item') }
+    it 'adds the item to the genre items' do
+      expect { label.add_item(item) }.to change { label.items.length }.by(1)
+    end
+    it 'does not add the item if it is already added' do
+      label.add_item(item)
+      expect { label.add_item(item) }.not_to(change { label.items.length })
     end
   end
 end

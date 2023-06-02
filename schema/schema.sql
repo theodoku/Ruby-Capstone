@@ -1,10 +1,5 @@
 CREATE DATABASE catalog;
 
-CREATE TABLE genres (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(255)
-);
-
 CREATE TABLE items (
   id BIGINT PRIMARY KEY,
   genre_id BIGINT NOT NULL,
@@ -19,6 +14,7 @@ CREATE TABLE items (
 
 CREATE TABLE music_albums (
   id BIGINT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
   item_id BIGINT NOT NULL,
   on_spotify BOOLEAN NOT NULL,
   FOREIGN KEY (item_id) REFERENCES items(id)
@@ -26,8 +22,20 @@ CREATE TABLE music_albums (
 
 CREATE TABLE games (
   id BIGINT PRIMARY KEY,
-  multiplayer VARCHAR(255) NOT NULL,
+  item_id BIGINT NOT NULL,
+  multiplayer BOOLEAN NOT NULL,
   last_played_at DATE NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES items(id)
+);
+
+-- Create the books table
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  item_id BIGINT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  publisher VARCHAR(255) NOT NULL,
+  cover_state VARCHAR(255) NOT NULL
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
 CREATE TABLE authors (
@@ -38,19 +46,18 @@ CREATE TABLE authors (
   FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
--- Create the books table
-CREATE TABLE books (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  author VARCHAR(255) NOT NULL,
-  publisher VARCHAR(255) NOT NULL,
-  cover_state VARCHAR(255) NOT NULL
+CREATE TABLE genres (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  item_id BIGINT NOT NULL,
+  name VARCHAR(255),
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
 -- Create the labels table
 CREATE TABLE labels (
   id SERIAL PRIMARY KEY,
+  item_id BIGINT NOT NULL,
   title VARCHAR(255) NOT NULL,
   color VARCHAR(255) NOT NULL,
-  item_id INTEGER REFERENCES items(id)
+  FOREIGN KEY (item_id) REFERENCES items(id)
 );

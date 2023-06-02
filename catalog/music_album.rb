@@ -1,11 +1,12 @@
 require 'json'
 require_relative 'item'
-
+require_relative 'genre'
 class MusicAlbum < Item
-  attr_accessor :on_spotify, :genre, :title, :publish_date
+  attr_reader :genre
+  attr_accessor :on_spotify, :title, :publish_date
 
   def initialize(title, on_spotify, genre, publish_date)
-    super(genre, author, label, publish_date)
+    super(publish_date)
     @on_spotify = on_spotify
     @genre = genre
     @publish_date = publish_date
@@ -27,7 +28,9 @@ class MusicAlbum < Item
 
     file_content = File.read(file_path)
     albums_data = JSON.parse(file_content)
-    albums_data.map { |album_data| MusicAlbum.new(*album_data.values) }
+    albums_data.map do |data|
+      MusicAlbum.new(data['title'], data['on_spotify'], Genre.new(data['genre']), data['publish_date'])
+    end
   end
 
   def self.save_all(music_albums)
@@ -37,11 +40,10 @@ class MusicAlbum < Item
       {
         title: album.title,
         on_spotify: album.on_spotify,
-        genre: album.genre,
+        genre: album.genre.name,
         publish_date: album.publish_date
       }
     end
-
     File.write(file_path, JSON.pretty_generate(data))
   end
 end

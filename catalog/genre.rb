@@ -1,6 +1,5 @@
 require 'json'
 require_relative 'item'
-
 class Genre
   attr_reader :id, :name, :items
 
@@ -11,9 +10,7 @@ class Genre
   end
 
   def add_item(item)
-    return if item_already_added?(item)
-
-    @items << item
+    @items << item unless @items.include?(item)
   end
 
   def self.file_path
