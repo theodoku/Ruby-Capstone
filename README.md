@@ -37,20 +37,6 @@
   Postgres SQL
 
 <details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
@@ -86,13 +72,13 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+<!-- VIDEO RECORDING -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demonstration <a name="live-demo"></a>
 
 > 
 
-- [Live Demo Link](https://drive.google.com/file/d/1B3S9A2qQulpGxnC4mW7Ozv9NcIHkThUw/view?usp=sharing)
+- [Video recording](https://drive.google.com/file/d/1B3S9A2qQulpGxnC4mW7Ozv9NcIHkThUw/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,6 +199,6 @@ Feel free to check the [issues page](https://github.com/theodoku/Ruby-Capstone/i
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./license) licensed.
+This project is [MIT License](./license)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
