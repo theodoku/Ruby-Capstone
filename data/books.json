@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"title":"New Book","publisher":"SK","cover_state":"good","author":{"first_name":"Simon","last_name":"Kabir"},"publish_date":"2020-01-23"},{"title":"Updated Book","publisher":"sss","cover_state":"good","author":{"first_name":"Simon","last_name":"Chow"},"publish_date":"2020-10-23"}]
-=======
 [{"title":"New Book","publisher":"SK","cover_state":"good","author":{"first_name":"Simon","last_name":"Kabir"},"publish_date":"2020-01-23"},{"title":"Proton","publisher":"Dag","cover_state":"good","author":{"first_name":"Theo","last_name":"Doku"},"publish_date":"2023-06-02"}]
->>>>>>> 72291c52aaa5336dc96552aaff2957093494b4ee
