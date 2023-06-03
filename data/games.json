@@ -1,0 +1,11 @@
+[
+  {
+    "multiplayer": true,
+    "last_played_at": "2023-01-23",
+    "label": {
+      "title": "New label",
+      "color": "blue"
+    },
+    "publish_date": "2020-01-23"
+  }
+]

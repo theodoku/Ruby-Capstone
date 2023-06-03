@@ -1,0 +1,14 @@
+[
+  {
+    "title": "New album",
+    "on_spotify": true,
+    "genre": "Comedy",
+    "publish_date": "2020-01-23"
+  },
+  {
+    "title": "New music album",
+    "on_spotify": false,
+    "genre": "Lifestyle",
+    "publish_date": "2010-01-23"
+  }
+]
